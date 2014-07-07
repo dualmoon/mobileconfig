@@ -1,0 +1,20 @@
+doctype html
+html(ng-app="mobileConfig")
+  head
+    title= title
+    link(rel="stylesheet", href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css")
+    //link(rel="stylesheet", href="//bootswatch.com/lumen/bootstrap.min.css")
+    link(rel="stylesheet", href="//fonts.googleapis.com/css?family=Lora:400,400italic,700,700italic&subset=latin,latin-ext,cyrillic")
+    link(rel='stylesheet', href='/css/style.css')
+  body
+    .container-fluid
+      block content
+
+    // Scripts
+    script(src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js")
+    script(src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.1.47/jquery.form-validator.min.js")
+    script(src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.18/angular.min.js")
+    script(src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js")
+    script(src="js/mobileConfig.js")
+
+    block uScripts

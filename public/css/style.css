@@ -1,0 +1,12 @@
+body {
+  padding-top: 50px;
+}
+.generatorContainer {
+  font-family: 'Lora', serif;
+}
+.center {
+  text-align: center;
+}
+.right {
+  text-align: right;
+}

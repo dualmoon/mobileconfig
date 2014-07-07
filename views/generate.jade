@@ -1,0 +1,37 @@
+extends layout
+
+block content
+   .generatorContainer(ng-controller="GeneratorCtrl")
+      .row.center
+         h1.col-md-6.col-sm-6.col-md-offset-3.col-sm-offset-3 Enter your information
+      .row.center
+         h3.col-md-6.col-sm-6.col-md-offset-3.col-sm-offset-3 we'll generate an iOS profile for you
+      .row
+         form.col-md-6.col-sm-6.col-md-offset-3.col-sm-offset-3(novalidate,name="generateForm",role="form",action="/generate",method="POST")
+            .form-group
+               label(for="nameInput") Name:
+               input.form-control#nameInput(type="text",name="name",placeholder="Jane Smith",size="25",
+                                            ng-model="setup.name",ng-required="true")
+               p.help-block(ng-show="generateForm.name.$invalid && !generateForm.name.$pristine")
+                  | Name is required.
+            .form-group
+                  label(for="emailInput") Email:
+                  .input-group
+                     input.form-control#emailInput.right(type="text",name="email",placeholder="j.smith",
+                                                         maxlength="25",ng-pattern="validUsername",ng-model="setup.user"
+                                                         ng-required="true")
+                     span.input-group-addon @zoominternet.net
+                  p.help-block(ng-show="generateForm.email.$invalid && !generateForm.email.$pristine")
+                     | Your username is required, and should be letters, numbers, and may have a period, an underscore, or a dash.
+            .form-group
+               .btn-group.btn-group-justified(data-toggle='buttons')
+                  label.btn.btn-success.active(ng-model="setup.serverType",btn-radio="'imap'") IMAP (recommended)
+                  label.btn.btn-success(ng-model="setup.serverType",btn-radio="'pop'") POP3
+                  input(type="hidden",name="serverType",ng-value="setup.serverType")
+               p.help-block(ng-show="generateForm.serverType.$invalid && !generateForm.serverType.$pristine")
+                  | Problem.
+            button.btn.btn-primary.btn-block#submit(type="submit",ng-disabled="generateForm.$invalid") Generate
+      br
+      .row.active
+         .col-md-6.col-sm-6.col-md-offset-3.col-sm-offset-3
+            pre {{ setup | json }}
