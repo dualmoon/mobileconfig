@@ -1,9 +1,12 @@
 {
   "name": "mobileconfig",
-  "version": "0.0.1",
+  "version": "0.1.6",
   "private": true,
   "scripts": {
     "start": "node ./bin/www"
+  },
+  "engines": {
+    "node": "0.11.x"
   },
   "dependencies": {
     "express": "~4.2.0",
